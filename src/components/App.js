@@ -10,27 +10,27 @@ const routes = [
   {
     path: "/",
     exact: true,
-    sidebar: () => <div>home!</div>,
+    sidebar: () => <div>home</div>,
     main: HomeContainer,
   },
   {
     path: "/about",
-    sidebar: () => <div>home</div>,
+    sidebar: () => <div>about</div>,
     main: AboutContainer,
   },
   {
     path: "/skill",
-    sidebar: () => <div>home</div>,
+    sidebar: () => <div>skill</div>,
     main: SkillContainer,
   },
   {
     path: "/project",
-    sidebar: () => <div>home</div>,
+    sidebar: () => <div>project</div>,
     main: ProjectContainer,
   },
   {
     path: "/work",
-    sidebar: () => <div>app</div>,
+    sidebar: () => <div>work</div>,
     main: WorkContainer,
   },
 ];
