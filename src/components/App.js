@@ -1,5 +1,9 @@
 import React from "react";
-import HomeContainer from "./containers/HomeContainer";
+import HomeContainer from "../containers/HomeContainer";
+import AboutContainer from "../containers/AboutContainer";
+import SkillContainer from "../containers/SkillContainer";
+import ProjectContainer from "../containers/ProjectContainer";
+import WorkContainer from "../containers/WorkContainer";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 const routes = [
@@ -12,22 +16,22 @@ const routes = [
   {
     path: "/about",
     sidebar: () => <div>home</div>,
-    main: () => <div>test</div>,
+    main: AboutContainer,
   },
   {
-    path: "/skills",
+    path: "/skill",
     sidebar: () => <div>home</div>,
-    main: () => <div>test</div>,
+    main: SkillContainer,
   },
   {
-    path: "/projects",
+    path: "/project",
     sidebar: () => <div>home</div>,
-    main: () => <div>test</div>,
+    main: ProjectContainer,
   },
   {
     path: "/work",
     sidebar: () => <div>app</div>,
-    main: App,
+    main: WorkContainer,
   },
 ];
 
@@ -44,13 +48,19 @@ function App() {
         >
           <ul style={{ listStyleType: "none", padding: 0 }}>
             <li>
-              <Link to="/">blank</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/home">Home</Link>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/app">App</Link>
+              <Link to="/skill">Skills</Link>
+            </li>
+            <li>
+              <Link to="/project">Project</Link>
+            </li>
+            <li>
+              <Link to="/work">Work</Link>
             </li>
           </ul>
 

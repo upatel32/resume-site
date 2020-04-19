@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { testFunction } from "../actions";
-import App from "../components/App";
+import About from "../components/About";
 
 const mapStateToProps = (state, ownProps) => {
   console.log("ownprops", ownProps);
@@ -16,6 +16,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);
+const AboutContainer = connect(mapStateToProps, mapDispatchToProps)(About);
 
-export default AppContainer;
+export default AboutContainer;
