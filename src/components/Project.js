@@ -1,7 +1,7 @@
 import React from "react";
 
-function Project() {
-  return <div>Project</div>;
+function Project({ projects }) {
+  return <div>{JSON.stringify(projects, null, 2)}</div>;
 }
 
 export default Project;
