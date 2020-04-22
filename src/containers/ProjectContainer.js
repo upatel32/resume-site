@@ -3,7 +3,6 @@ import {} from "../actions";
 import Project from "../components/Project";
 
 const mapStateToProps = (state, ownProps) => {
-  console.log("Project container");
   return { projects: state.resume.projects };
 };
 

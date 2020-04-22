@@ -3,8 +3,6 @@ import { fetchResume } from "../actions";
 import App from "../components/App";
 
 const mapStateToProps = (state, ownProps) => {
-  console.log("ownprops", ownProps);
-  console.log("state", state);
   return state;
 };
 

@@ -7,13 +7,10 @@ export function testFunction(randomInput) {
 }
 
 export function requestResume() {
-  console.log("request resume");
   return { type: REQUEST_RESUME };
 }
 
 export function receiveResume(json) {
-  console.log("receive resume");
-
   return {
     type: RECEIVE_RESUME,
     resume: json,
@@ -21,8 +18,6 @@ export function receiveResume(json) {
 }
 
 export function fetchResume() {
-  console.log("fetch resume");
-
   return (dispatch) => {
     dispatch(requestResume());
     return fetch("https://gitconnected.com/v1/portfolio/upatel32", {

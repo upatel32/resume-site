@@ -3,8 +3,6 @@ import { testFunction } from "../actions";
 import Skill from "../components/Skill";
 
 const mapStateToProps = (state, ownProps) => {
-  console.log("ownprops", ownProps);
-  console.log("state", state);
   return { skills: state.resume.skills };
 };
 
