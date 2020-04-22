@@ -1,7 +1,7 @@
 import React from "react";
 
-function Skill() {
-  return <div>Skill</div>;
+function Skill({ skills }) {
+  return <div>{JSON.stringify(skills, null, 2)}</div>;
 }
 
 export default Skill;
