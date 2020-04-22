@@ -1,17 +1,17 @@
 import { connect } from "react-redux";
-import { testFunction } from "../actions";
+import { fetchResume } from "../actions";
 import App from "../components/App";
 
 const mapStateToProps = (state, ownProps) => {
   console.log("ownprops", ownProps);
   console.log("state", state);
-  return {};
+  return state;
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: () => {
-      dispatch(testFunction(ownProps.information));
+    fetchResume: () => {
+      dispatch(fetchResume());
     },
   };
 };

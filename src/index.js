@@ -2,12 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import AppContainer from "./containers/AppContainer";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import resumeApp from "./reducers";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 
-const store = createStore(resumeApp);
+const store = createStore(resumeApp, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>

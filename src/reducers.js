@@ -1,16 +1,27 @@
 import { combineReducers } from "redux";
-import { TEST_ACTION } from "./actions";
+import { REQUEST_RESUME, RECEIVE_RESUME } from "./actions";
 
-function information(state = {}, action) {
+function resume(state = {}, action) {
   switch (action.type) {
     default:
-    case TEST_ACTION:
-      return Object.assign({}, { text: action.randomInput });
+    case RECEIVE_RESUME:
+      return Object.assign({}, action.resume);
+  }
+}
+
+function isLoading(state = false, action) {
+  switch (action.type) {
+    default:
+    case RECEIVE_RESUME:
+      return false;
+    case REQUEST_RESUME:
+      return true;
   }
 }
 
 const resumeApp = combineReducers({
-  information,
+  resume,
+  isLoading,
 });
 
 export default resumeApp;

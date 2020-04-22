@@ -35,8 +35,17 @@ const routes = [
   },
 ];
 
-function App() {
-  return (
+const App = ({ resume, fetchResume, isLoading }) => {
+  console.log("loading:", isLoading);
+  console.log("resume:", resume);
+
+  if (Object.keys(resume).length === 0 && !isLoading) {
+    fetchResume();
+  }
+
+  return Object.keys(resume).length === 0 ? (
+    <div>LOADING...</div>
+  ) : (
     <Router>
       <div style={{ display: "flex" }}>
         <div
@@ -100,6 +109,6 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
 export default App;
