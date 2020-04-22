@@ -5,7 +5,7 @@ import Skill from "../components/Skill";
 const mapStateToProps = (state, ownProps) => {
   console.log("ownprops", ownProps);
   console.log("state", state);
-  return {};
+  return { skills: state.resume.skills };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

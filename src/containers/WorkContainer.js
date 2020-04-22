@@ -5,7 +5,7 @@ import Work from "../components/Work";
 const mapStateToProps = (state, ownProps) => {
   console.log("ownprops", ownProps);
   console.log("state", state);
-  return {};
+  return { work: state.resume.work };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

@@ -5,7 +5,7 @@ import Home from "../components/Home";
 const mapStateToProps = (state, ownProps) => {
   console.log("ownprops", ownProps);
   console.log("state", state);
-  return {};
+  return { basics: state.resume.basics, education: state.resume.education };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

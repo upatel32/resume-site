@@ -4,7 +4,7 @@ import Project from "../components/Project";
 
 const mapStateToProps = (state, ownProps) => {
   console.log("Project container");
-  return {};
+  return { projects: state.resume.projects };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

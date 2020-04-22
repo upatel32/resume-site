@@ -5,7 +5,7 @@ import About from "../components/About";
 const mapStateToProps = (state, ownProps) => {
   console.log("ownprops", ownProps);
   console.log("state", state);
-  return {};
+  return state.resume.basics;
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
