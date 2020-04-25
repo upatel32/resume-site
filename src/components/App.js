@@ -1,10 +1,12 @@
 import React from "react";
+import Loading from "./Loading";
 import HomeContainer from "../containers/HomeContainer";
 import AboutContainer from "../containers/AboutContainer";
 import SkillContainer from "../containers/SkillContainer";
 import ProjectContainer from "../containers/ProjectContainer";
 import WorkContainer from "../containers/WorkContainer";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+//import { Drawer } from "@material-ui/core";
 
 const routes = [
   {
@@ -44,68 +46,70 @@ const App = ({ resume, fetchResume, isLoading }) => {
   }
 
   return Object.keys(resume).length === 0 ? (
-    <div>LOADING...</div>
+    <Loading />
   ) : (
     <Router>
-      <div style={{ display: "flex" }}>
-        <div
-          style={{
-            padding: "10px",
-            width: "40%",
-            background: "#f0f0f0",
-          }}
-        >
-          <ul style={{ listStyleType: "none", padding: 0 }}>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/skill">Skills</Link>
-            </li>
-            <li>
-              <Link to="/project">Project</Link>
-            </li>
-            <li>
-              <Link to="/work">Work</Link>
-            </li>
-          </ul>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <ul className={"navbar-nav mr-auto"}>
+          <li className={"nav-item active"}>
+            <Link className={"nav-link"} to="/">
+              Home
+            </Link>
+          </li>
+          <li className={"nav-item active"}>
+            <Link className={"nav-link"} to="/about">
+              About
+            </Link>
+          </li>
+          <li className={"nav-item active"}>
+            <Link className={"nav-link"} to="/skill">
+              Skills
+            </Link>
+          </li>
+          <li className={"nav-item active"}>
+            <Link className={"nav-link"} to="/project">
+              Project
+            </Link>
+          </li>
+          <li className={"nav-item active"}>
+            <Link className={"nav-link"} to="/work">
+              Work
+            </Link>
+          </li>
+        </ul>
+      </nav>
 
-          <Switch>
-            {routes.map((route, index) => (
-              // You can render a <Route> in as many places
-              // as you want in your app. It will render along
-              // with any other <Route>s that also match the URL.
-              // So, a sidebar or breadcrumbs or anything else
-              // that requires you to render multiple things
-              // in multiple places at the same URL is nothing
-              // more than multiple <Route>s.
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                children={<route.sidebar />}
-              />
-            ))}
-          </Switch>
-        </div>
+      <Switch>
+        {routes.map((route, index) => (
+          // You can render a <Route> in as many places
+          // as you want in your app. It will render along
+          // with any other <Route>s that also match the URL.
+          // So, a sidebar or breadcrumbs or anything else
+          // that requires you to render multiple things
+          // in multiple places at the same URL is nothing
+          // more than multiple <Route>s.
+          <Route
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            children={<route.sidebar />}
+          />
+        ))}
+      </Switch>
 
-        <div style={{ flex: 1, padding: "10px" }}>
-          <Switch>
-            {routes.map((route, index) => (
-              // Render more <Route>s with the same paths as
-              // above, but different components this time.
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                children={<route.main />}
-              />
-            ))}
-          </Switch>
-        </div>
+      <div style={{ flex: 1, padding: "10px" }}>
+        <Switch>
+          {routes.map((route, index) => (
+            // Render more <Route>s with the same paths as
+            // above, but different components this time.
+            <Route
+              key={index}
+              path={route.path}
+              exact={route.exact}
+              children={<route.main />}
+            />
+          ))}
+        </Switch>
       </div>
     </Router>
   );
