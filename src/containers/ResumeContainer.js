@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { testFunction } from "../actions";
-import Work from "../components/Work";
+import Work from "../components/Resume";
 
 const mapStateToProps = (state, ownProps) => {
   return { work: state.resume.work };
