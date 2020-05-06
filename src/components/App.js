@@ -1,8 +1,6 @@
 import React from "react";
 import Loading from "./Loading";
 import HomeContainer from "../containers/HomeContainer";
-import AboutContainer from "../containers/AboutContainer";
-//import SkillContainer from "../containers/SkillContainer";
 import ProjectContainer from "../containers/ProjectContainer";
 import ResumeContainer from "../containers/ResumeContainer";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
@@ -13,11 +11,6 @@ const routes = [
     exact: true,
     sidebar: () => <div>Welcome</div>,
     main: HomeContainer,
-  },
-  {
-    path: "/about",
-    sidebar: () => <div>About Me</div>,
-    main: AboutContainer,
   },
   {
     path: "/project",
@@ -46,11 +39,6 @@ const App = ({ resume, fetchResume, isLoading }) => {
             <li className={"nav-item "}>
               <Link className={"nav-link"} to="/">
                 Home
-              </Link>
-            </li>
-            <li className={"nav-item "}>
-              <Link className={"nav-link"} to="/about">
-                About
               </Link>
             </li>
             <li className={"nav-item "}>
