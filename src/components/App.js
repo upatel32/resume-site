@@ -33,7 +33,7 @@ const App = ({ resume, fetchResume, isLoading }) => {
     <Loading />
   ) : (
     <Router>
-      <nav className={"navbar navbar-expand-lg navbar-light bg-light"}>
+      <nav className={"navbar navbar-expand navbar-light bg-light"}>
         <div class="collapse navbar-collapse justify-content-center">
           <ul className={"navbar-nav"}>
             <li className={"nav-item "}>
