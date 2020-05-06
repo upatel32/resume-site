@@ -4,8 +4,13 @@ function Project({ projects }) {
   const projectsDom = projects.map((project, index) => {
     return (
       <div className={"card text-dark bg-light"}>
-        <h5 className={"card-header text-center "} href={project.githubUrl}>
-          {project.name}
+        <h5 className={"card-header text-center "}>
+          <a
+            href={project.githubUrl}
+            className={"text-decoration-none text-dark"}
+          >
+            {project.name}
+          </a>
         </h5>
         <div className={"card-body border-info"}>
           <p className={"card-text"}>
