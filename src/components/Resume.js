@@ -9,7 +9,7 @@ function Work({ work }) {
           <h1 className={"display-6 col-md-9"} href={workPlace.website}>
             {workPlace.company}
           </h1>
-          <div className={"col-md-3 text-right"}>
+          <div className={"col-md-3 text-right d-none d-sm-block"}>
             <Moment format={"MMM YYYY"}>{workPlace.startDate}</Moment>
             <span> to </span>
             {index === 0 ? (
