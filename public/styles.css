@@ -8,3 +8,8 @@ body {
   column-gap: 2em;
   row-gap: 1em;
 }
+
+.badge {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}

@@ -3,7 +3,7 @@ import { testFunction } from "../actions";
 import About from "../components/About";
 
 const mapStateToProps = (state, ownProps) => {
-  return { basics: state.resume.basics };
+  return { basics: state.resume.basics, education: state.resume.education };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
