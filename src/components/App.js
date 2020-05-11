@@ -37,7 +37,7 @@ const App = ({ resume, fetchResume, isLoading, location }) => {
   if (Object.keys(resume).length === 0 && !isLoading) {
     fetchResume();
   }
-  console.log(location);
+  console.log("app.js", location);
   return Object.keys(resume).length === 0 ? (
     <Loading />
   ) : (

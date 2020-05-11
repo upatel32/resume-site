@@ -32,11 +32,11 @@ const routes = [
 ];
 
 const Test = ({ location }) => {
-  console.log(location);
+  console.log("test.js", location);
   return (
     <TransitionGroup className={"transition-group"}>
       <CSSTransition
-        key={location.key}
+        key={location.pathname}
         timeout={{ enter: 3000, exit: 3000 }}
         classNames="page"
         mountOnEnter={true}
