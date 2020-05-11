@@ -1,0 +1,51 @@
+body {
+  background-color: #003366;
+  font-family: Ubuntu;
+}
+
+.badge {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.card-columns {
+  @include media-breakpoint-only(sm) {
+    column-count: 1;
+  }
+  @include media-breakpoint-only(md) {
+    column-count: 3;
+  }
+}
+
+.page-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 3000ms, transform 3000ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 3000ms, transform 3000ms;
+}
+
+.section {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.transition-group {
+  position: relative;
+}

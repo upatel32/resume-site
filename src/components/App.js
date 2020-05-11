@@ -3,38 +3,47 @@ import Loading from "./Loading";
 import HomeContainer from "../containers/HomeContainer";
 import ProjectContainer from "../containers/ProjectContainer";
 import ResumeContainer from "../containers/ResumeContainer";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import Test from "../containers/Test";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  withRouter,
+} from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import "../styles.css";
 
 const routes = [
   {
     path: "/",
     exact: true,
-    sidebar: () => <div>Welcome</div>,
-    main: HomeContainer,
+    Sidebar: () => <div>Welcome</div>,
+    Main: HomeContainer,
   },
   {
     path: "/project",
-    sidebar: () => <div>GitHub Projects</div>,
-    main: ProjectContainer,
+    Sidebar: () => <div>GitHub Projects</div>,
+    Main: ProjectContainer,
   },
   {
     path: "/resume",
-    sidebar: () => <div>Resume</div>,
-    main: ResumeContainer,
+    Sidebar: () => <div>Resume</div>,
+    Main: ResumeContainer,
   },
 ];
 
-const App = ({ resume, fetchResume, isLoading }) => {
+const App = ({ resume, fetchResume, isLoading, location }) => {
   if (Object.keys(resume).length === 0 && !isLoading) {
     fetchResume();
   }
-
+  console.log(location);
   return Object.keys(resume).length === 0 ? (
     <Loading />
   ) : (
-    <Router>
+    <div>
       <nav className={"navbar navbar-expand navbar-light bg-light"}>
-        <div class="collapse navbar-collapse justify-content-center">
+        <div className="collapse navbar-collapse justify-content-center">
           <ul className={"navbar-nav"}>
             <li className={"nav-item "}>
               <Link className={"nav-link"} to="/">
@@ -56,41 +65,10 @@ const App = ({ resume, fetchResume, isLoading }) => {
       </nav>
       <br />
       <div className={"container"}>
-        <h1 class="display-4 text-center text-light">
-          <Switch>
-            {routes.map((route, index) => (
-              // You can render a <Route> in as many places
-              // as you want in your app. It will render along
-              // with any other <Route>s that also match the URL.
-              // So, a sidebar or breadcrumbs or anything else
-              // that requires you to render multiple things
-              // in multiple places at the same URL is nothing
-              // more than multiple <Route>s.
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                children={<route.sidebar />}
-              />
-            ))}
-          </Switch>
-        </h1>
-        <hr class="my-4" />
-        <Switch>
-          {routes.map((route, index) => (
-            // Render more <Route>s with the same paths as
-            // above, but different components this time.
-            <Route
-              key={index}
-              path={route.path}
-              exact={route.exact}
-              children={<route.main />}
-            />
-          ))}
-        </Switch>{" "}
+        <Test />
       </div>
-    </Router>
+    </div>
   );
 };
 
-export default App;
+export default withRouter(App);
