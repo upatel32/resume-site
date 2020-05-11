@@ -15,5 +15,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 const WorkContainer = connect(mapStateToProps, mapDispatchToProps)(Work);
-
 export default WorkContainer;

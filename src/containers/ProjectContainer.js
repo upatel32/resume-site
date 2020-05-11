@@ -11,5 +11,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 const ProjectContainer = connect(mapStateToProps, mapDispatchToProps)(Project);
-
 export default ProjectContainer;

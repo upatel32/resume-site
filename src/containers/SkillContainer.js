@@ -15,5 +15,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 const SkillContainer = connect(mapStateToProps, mapDispatchToProps)(Skill);
-
 export default SkillContainer;
