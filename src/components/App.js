@@ -27,11 +27,11 @@ const routes = [
   },
 ];
 
-const App = ({ resume, fetchResume, isLoading, location }) => {
+const App = ({ resume, isLoading, fetchResume, location }) => {
   if (Object.keys(resume).length === 0 && !isLoading) {
     fetchResume();
   }
-  console.log("app.js", location);
+
   return Object.keys(resume).length === 0 ? (
     <Loading />
   ) : (
@@ -42,15 +42,15 @@ const App = ({ resume, fetchResume, isLoading, location }) => {
         <TransitionGroup className={"transition-group"}>
           <CSSTransition
             key={location.pathname}
-            timeout={{ enter: 3000, exit: 3000 }}
+            timeout={{ enter: 300, exit: 300 }}
             classNames="page"
             mountOnEnter={true}
             unmountOnExit={true}
           >
-            <section className={"section"}>
+            <section ref={React.createRef()} className={"section"}>
               <h1 className="display-4 text-center text-light">
-                <Switch>
-                  {routes.map(({ path, Sidebar, Main, exact }, index) => (
+                <Switch location={location}>
+                  {routes.map(({ path, Sidebar, exact }, index) => (
                     <Route
                       key={index}
                       path={path}
@@ -62,12 +62,12 @@ const App = ({ resume, fetchResume, isLoading, location }) => {
               </h1>
               <hr className="my-4" />
               <Switch>
-                {routes.map((route, index) => (
+                {routes.map(({ path, Main, exact }, index) => (
                   <Route
                     key={index}
-                    path={route.path}
-                    exact={route.exact}
-                    children={<route.Main />}
+                    path={path}
+                    exact={exact}
+                    children={<Main />}
                   />
                 ))}
               </Switch>

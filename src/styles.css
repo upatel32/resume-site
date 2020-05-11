@@ -25,7 +25,7 @@ body {
 .page-enter-active {
   opacity: 1;
   transform: scale(1);
-  transition: opacity 3000ms, transform 3000ms;
+  transition: opacity 300ms, transform 300ms;
 }
 
 .page-exit {
@@ -36,7 +36,7 @@ body {
 .page-exit-active {
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity 3000ms, transform 3000ms;
+  transition: opacity 300ms, transform 300ms;
 }
 
 .section {
