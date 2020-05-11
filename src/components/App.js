@@ -42,7 +42,7 @@ const App = ({ resume, isLoading, fetchResume, location }) => {
         <TransitionGroup className={"transition-group"}>
           <CSSTransition
             key={location.pathname}
-            timeout={{ enter: 300, exit: 300 }}
+            timeout={{ enter: 300 }}
             classNames="page"
             mountOnEnter={true}
             unmountOnExit={true}
