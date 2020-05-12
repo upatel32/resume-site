@@ -60,3 +60,7 @@ body {
   margin-top: -50px;
   background-size: 100%;
 }
+
+img {
+  width: 40%;
+}
