@@ -8,8 +8,8 @@ import { Route, Switch, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "../styles.css";
 
-const ref = React.createRef();
-console.log(ref);
+//const ref = React.createRef();
+// console.log(ref);
 const routes = [
   {
     path: "/",
