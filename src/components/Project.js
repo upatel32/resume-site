@@ -16,7 +16,7 @@ function Project({ projects }) {
           <p className={"card-text"}>
             <small className={"font-weight-light"}>{project.summary}</small>
           </p>
-          <div className={" text-center"}>
+          <div className={"text-center"}>
             {project.languages.map((language, index) => (
               <span key={index} className={"badge badge-secondary"}>
                 {language}
