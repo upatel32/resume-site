@@ -8,6 +8,7 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "../styles.css";
 
+const ref = React.createRef();
 const routes = [
   {
     path: "/",
@@ -45,8 +46,9 @@ const App = ({ resume, isLoading, fetchResume, location }) => {
             classNames="page"
             mountOnEnter={true}
             unmountOnExit={true}
+            nodeRef={ref}
           >
-            <section ref={React.createRef()} className={"section"}>
+            <section className={"section"}>
               <h1 className="display-4 text-center text-light">
                 <Switch location={location}>
                   {routes.map(({ path, Sidebar, exact }, index) => (
