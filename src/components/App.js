@@ -4,11 +4,12 @@ import Navbar from "./Navbar";
 import HomeContainer from "../containers/HomeContainer";
 import ProjectContainer from "../containers/ProjectContainer";
 import ResumeContainer from "../containers/ResumeContainer";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "../styles.css";
 
 const ref = React.createRef();
+console.log(ref);
 const routes = [
   {
     path: "/",
@@ -28,10 +29,12 @@ const routes = [
   },
 ];
 
-const App = ({ resume, isLoading, fetchResume, location }) => {
+const App = ({ resume, isLoading, fetchResume }) => {
   if (Object.keys(resume).length === 0 && !isLoading) {
     fetchResume();
   }
+
+  let location = useLocation();
   return Object.keys(resume).length === 0 ? (
     <Loading />
   ) : (
@@ -41,12 +44,12 @@ const App = ({ resume, isLoading, fetchResume, location }) => {
       <div className={"container"}>
         <TransitionGroup className={"transition-group"}>
           <CSSTransition
-            key={location.pathname}
+            key={location.key}
             timeout={{ enter: 400, exit: 200 }}
             classNames="page"
             mountOnEnter={true}
             unmountOnExit={true}
-            nodeRef={ref}
+            //nodeRef={ref}
           >
             <section className={"section"}>
               <h1 className="display-4 text-center text-light">
@@ -80,4 +83,4 @@ const App = ({ resume, isLoading, fetchResume, location }) => {
   );
 };
 
-export default withRouter(App);
+export default App;
