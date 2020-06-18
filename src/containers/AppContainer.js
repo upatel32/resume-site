@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { fetchResume } from "../actions";
+import { fetchAll } from "../actions";
 import App from "../components/App";
 
 const mapStateToProps = (state, ownProps) => {
@@ -8,8 +8,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    fetchResume: () => {
-      dispatch(fetchResume());
+    fetchAll: () => {
+      dispatch(fetchAll());
     },
   };
 };

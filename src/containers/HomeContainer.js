@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import { testFunction } from "../actions";
 import Home from "../components/Home";
 
 const mapStateToProps = (state, ownProps) => {
@@ -8,9 +7,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: () => {
-      dispatch(testFunction(ownProps.information));
-    },
+    onClick: () => {},
   };
 };
 

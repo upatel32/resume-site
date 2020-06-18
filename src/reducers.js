@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 import {
-  REQUEST_RESUME,
   RECEIVE_RESUME,
   RECEIVE_PROJECTS,
-  REQUEST_PROJECTS,
+  RECEIVE_ALL,
+  REQUEST_ALL,
 } from "./actions";
 
 function projects(state = {}, action) {
@@ -25,9 +25,9 @@ function resume(state = {}, action) {
 function isLoading(state = false, action) {
   switch (action.type) {
     default:
-    case RECEIVE_RESUME:
+    case RECEIVE_ALL:
       return false;
-    case REQUEST_RESUME:
+    case REQUEST_ALL:
       return true;
   }
 }
