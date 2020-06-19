@@ -11,12 +11,15 @@ export function fetchAll() {
     Promise.all([
       dispatch(fetchSomething("resume")),
       dispatch(fetchSomething("projects")),
-    ]).then(console.log("EVERYTHING FETCHED!"));
+    ]).then(() => {
+      dispatch({
+        type: RECEIVE_ALL,
+      });
+    });
   };
 }
 
 function fetchSomething(something) {
-  console.log("fetching... " + something);
   let url =
     something === "resume"
       ? "https://gitconnected.com/v1/portfolio/upatel32"
@@ -34,7 +37,6 @@ function fetchSomething(something) {
       },
     })
       .then((response) => {
-        console.log(response);
         if (!response.ok) {
           return Promise.reject(
             new Error(something + " could not be fetched")

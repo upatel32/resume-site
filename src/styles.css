@@ -6,6 +6,7 @@ body {
 .badge {
   margin-left: 0.5em;
   margin-right: 0.5em;
+  background-color: #003366;
 }
 
 .card-columns {

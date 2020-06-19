@@ -8,8 +8,6 @@ import { Route, Switch, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "../styles.css";
 
-//const ref = React.createRef();
-// console.log(ref);
 const routes = [
   {
     path: "/",
@@ -30,25 +28,21 @@ const routes = [
 ];
 
 const App = ({ resume, projects, isLoading, fetchAll }) => {
-  if (Object.keys(resume).length === 0 && !isLoading) {
+  if (
+    (Object.keys(resume).length === 0 || Object.keys(projects).length === 0) &&
+    !isLoading
+  ) {
     fetchAll();
   }
 
-  // if (Object.keys(projects).length === 0 && !isLoading) {
-  //   console.log("FETCHING PROJECT");
-  //   //fetchProjects();
-  // }
-
   let location = useLocation();
-  return Object.keys(resume).length ===
-    0 /*||
-    Object.keys(projects).length === 0 */ ? (
+  return Object.keys(resume).length === 0 ||
+    Object.keys(projects).length === 0 ? (
     <Loading />
   ) : (
     <div>
       <Navbar />
       <br />
-      <button onClick={() => fetchAll()}></button>
       <div className={"container"}>
         <TransitionGroup className={"transition-group"}>
           <CSSTransition

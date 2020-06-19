@@ -3,7 +3,7 @@ import {} from "../actions";
 import Project from "../components/Project";
 
 const mapStateToProps = (state, ownProps) => {
-  return { projects: state.resume.projects };
+  return { projects: state.projects };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

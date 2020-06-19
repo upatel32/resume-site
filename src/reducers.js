@@ -9,6 +9,7 @@ import {
 function projects(state = {}, action) {
   switch (action.type) {
     default:
+      return state;
     case RECEIVE_PROJECTS:
       return Object.assign({}, action.projects);
   }
@@ -17,6 +18,7 @@ function projects(state = {}, action) {
 function resume(state = {}, action) {
   switch (action.type) {
     default:
+      return state;
     case RECEIVE_RESUME:
       return Object.assign({}, action.resume);
   }
@@ -25,8 +27,11 @@ function resume(state = {}, action) {
 function isLoading(state = false, action) {
   switch (action.type) {
     default:
+      return state;
     case RECEIVE_ALL:
       return false;
+    case RECEIVE_PROJECTS:
+    case RECEIVE_RESUME:
     case REQUEST_ALL:
       return true;
   }
