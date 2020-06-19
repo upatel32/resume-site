@@ -30,8 +30,6 @@ function isLoading(state = false, action) {
       return state;
     case RECEIVE_ALL:
       return false;
-    case RECEIVE_PROJECTS:
-    case RECEIVE_RESUME:
     case REQUEST_ALL:
       return true;
   }

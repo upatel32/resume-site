@@ -1,8 +1,10 @@
 import React from "react";
 
 function Project({ projects }) {
-  const projectsDom = Object.keys(projects).map((key, index) => {
-    let project = projects[key];
+  let organizedProjects = Object.values(projects).sort(
+    (a, b) => new Date(b.updated_at) - new Date(a.updated_at)
+  );
+  const projectsDom = organizedProjects.map((project, index) => {
     return (
       <div key={index} className={"card text-dark bg-light"}>
         <h5 className={"card-header text-center "}>
