@@ -1,7 +1,10 @@
 import React from "react";
 import Moment from "react-moment";
+import siteContext from "../context";
 
-function Work({ work }) {
+function Work() {
+  const context = React.useContext(siteContext);
+  const work = context.resume.work;
   const workDom = work.map((workPlace, index) => {
     return (
       <div key={index} className={"jumbotron bg-light text-dark container"}>

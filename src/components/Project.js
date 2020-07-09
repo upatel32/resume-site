@@ -1,6 +1,9 @@
 import React from "react";
+import siteContext from "../context";
 
-function Project({ projects }) {
+function Project() {
+  const context = React.useContext(siteContext);
+  const projects = context.projects;
   let organizedProjects = Object.values(projects).sort(
     (a, b) => new Date(b.updated_at) - new Date(a.updated_at)
   );

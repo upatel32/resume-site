@@ -2,8 +2,11 @@ import React from "react";
 import me from "../profile.jpeg";
 import linkedinIcon from "../icons/linkedin.svg";
 import githubIcon from "../icons/github.svg";
+import siteContext from "../context";
 
-function About({ basics }) {
+function About() {
+  const context = React.useContext(siteContext);
+  const basics = context.resume.basics;
   return (
     <div className={""}>
       <div className={"row justify-content-center home-card"}>

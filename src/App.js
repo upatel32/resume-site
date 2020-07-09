@@ -1,43 +1,44 @@
 import React from "react";
-import Loading from "./Loading";
-import Navbar from "./Navbar";
-import HomeContainer from "../containers/HomeContainer";
-import ProjectContainer from "../containers/ProjectContainer";
-import ResumeContainer from "../containers/ResumeContainer";
+import Loading from "./components/Loading";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import Project from "./components/Project";
+import Resume from "./components/Resume";
 import { Route, Switch, useLocation } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import "../styles.css";
+import "./styles.css";
+import siteContext from "./context";
 
 const routes = [
   {
     path: "/",
     exact: true,
     Sidebar: () => <div>Welcome</div>,
-    Main: HomeContainer,
+    Main: Home,
   },
   {
     path: "/project",
     Sidebar: () => <div>GitHub Projects</div>,
-    Main: ProjectContainer,
+    Main: Project,
   },
   {
     path: "/resume",
     Sidebar: () => <div>Resume</div>,
-    Main: ResumeContainer,
+    Main: Resume,
   },
 ];
 
-const App = ({ resume, projects, isLoading, fetchAll }) => {
-  if (
-    (Object.keys(resume).length === 0 || Object.keys(projects).length === 0) &&
-    !isLoading
-  ) {
-    fetchAll();
+const App = () => {
+  const context = React.useContext(siteContext);
+  const isContent =
+    Object.keys(context.resume).length === 0 || context.projects.length === 0;
+
+  if (isContent && !context.isLoading) {
+    context.fetchAll();
   }
 
   let location = useLocation();
-  return Object.keys(resume).length === 0 ||
-    Object.keys(projects).length === 0 ? (
+  return isContent ? (
     <Loading />
   ) : (
     <div>
@@ -51,7 +52,6 @@ const App = ({ resume, projects, isLoading, fetchAll }) => {
             classNames="page"
             mountOnEnter={true}
             unmountOnExit={true}
-            //nodeRef={ref}
           >
             <section className={"section"}>
               <h1 className="display-4 text-center text-light">

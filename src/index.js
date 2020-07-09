@@ -1,21 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AppContainer from "./containers/AppContainer";
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import resumeApp from "./reducers";
-import { Provider } from "react-redux";
+import App from "./App";
 import { BrowserRouter as Router } from "react-router-dom";
-
-const store = createStore(resumeApp, applyMiddleware(thunk));
+import { SiteContextProvider } from "./context";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <Router>
-        <AppContainer />
-      </Router>
-    </Provider>
-  </React.StrictMode>,
+  <SiteContextProvider>
+    <Router>
+      <App />
+    </Router>
+  </SiteContextProvider>,
   document.getElementById("root")
 );
